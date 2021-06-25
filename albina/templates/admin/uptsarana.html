@@ -1,0 +1,99 @@
+{% extends "admin/base.html" %}
+
+{% block konten%}
+    
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+    
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Sarana Prasarana Sekolah </h1>
+                            <!--bagian bisa dimasukan form seacrh dari masing-masing data-->
+                            <p></p>
+                        </div>
+    
+                        <!-- Content Row -->
+                    
+                        <div class="row">
+    
+                            <!-- Data indusrti -->
+                            <div class="col-xl-4 col-lg-5">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Input Sarana Prasarana Sekolah</h6>
+                                       
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <!--form inputan-->
+                                        <p>Masukkan Data Data Sarana Prasarana Sekolah</p>
+                                        <form method="POST">
+                                            {{form.hidden_tag()}}
+
+                                        <div class="form-group">
+                                            {{form.sarana.label(class="form-control-label")}}
+                                            {% if form.sarana.errors %}
+                                                 {{form.sarana(class="form-control is-invalid")}}
+                                        
+                                                 <div class="invalid-feedback">
+                                                     {%for error in form.sarana.errors %}
+                                                     <span>{{error}}</span>
+                                                     {% endfor %}
+                                                 </div>
+                                            {%else%}
+                                                {{form.sarana(class="form-control")}}
+                                            
+                                            {%endif%}
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            {{form.ket.label(class="form-control-label")}}
+                                            {% if form.ket.errors %}
+                                                 {{form.ket(class="form-control is-invalid")}}
+                                        
+                                                 <div class="invalid-feedback">
+                                                     {%for error in form.ket.errors %}
+                                                     <span>{{error}}</span>
+                                                     {% endfor %}
+                                                 </div>
+                                            {%else%}
+                                                {{form.ket(class="form-control")}}
+                                            
+                                            {%endif%}
+                                        </div>
+                                                   <div class="form-group">
+                                            {{form.gmbr.label(class="form-control-label")}}
+                                            {% if form.gmbr.errors %}
+                                                 {{form.gmbr(class="form-control is-invalid")}}
+                                        
+                                                 <div class="invalid-feedback">
+                                                     {%for error in form.gmbr.errors %}
+                                                     <span>{{error}}</span>
+                                                     {% endfor %}
+                                                 </div>
+                                            {%else%}
+                                                {{form.gmbr(class="form-control")}}
+                                            
+                                            {%endif%}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.submit(class="btn btn-primary")}}
+                                            <a class="btn btn-warning" href="{{url_for('badmin.sarana')}}">Kembali</a>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Input Kategori -->
+                            
+                        </div>
+    
+    </div></div>      
+    
+    </div>
+                    <!-- /.container-fluid -->
+{% endblock%}
+    

@@ -1,0 +1,60 @@
+<!-- css  LOGIN-->
+<link href="{{ url_for ('static', filename="user/bostraps/assets/css/style2.css")}}" rel="stylesheet">
+
+<!-- HTML LOGIN -->
+<body>
+  <div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Daftar Akun</h1>
+      </div>
+      <form method="POST" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+
+        <div class="form-group das6">
+          {{form.niss.label(class="form-control-label")}} {% if form.niss.errors %} {{form.niss(class="form-control is-invalid")}}
+
+          <div class="invalid-feedback">
+            {%for error in form.niss.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+          </div>
+          {%else%} {{form.niss(class="form-control")}} {%endif%}
+        </div>
+        <br />
+        <div class="form-group das6">
+          {{form.username.label(class="form-control-label")}} {% if form.username.errors %} {{form.username(class="form-control is-invalid")}}
+
+          <div class="invalid-feedback">
+            {%for error in form.username.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+          </div>
+          {%else%} {{form.username(class="form-control")}} {%endif%}
+        </div>
+        <br />
+        <div class="form-group das6">
+          {{form.password.label(class="form-control-label") }} {% if form.password.errors %} {{form.password(class="form-control is-invalid")}}
+          <div class="invalid-feedback">
+            {%for error in form.password.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+          </div>
+          {%else%} {{form.password(class="form-control")}} {%endif%}
+        </div>
+        <div class="form-group das6">
+          {{form.konf_pass.label(class="form-control-label") }} {% if form.konf_pass.errors %} {{form.konf_pass(class="form-control is-invalid")}}
+          <div class="invalid-feedback">
+            {%for error in form.konf_pass.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+          </div>
+          {%else%} {{form.konf_pass(class="form-control")}} {%endif%}
+        </div>
+        <br />
+        <div class="form-group das7">{{form.submit(class="btn btn-primary")}}</div>
+        <br />
+      </form>
+    </div>
+  </div>
+</body>

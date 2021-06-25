@@ -1,0 +1,47 @@
+<!-- css  LOGIN-->
+<link href="{{ url_for ('static', filename="user/bostraps/assets/css/style2.css")}}" rel="stylesheet">
+
+<!-- HTML LOGIN -->
+<body>
+  <div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Masuk Akun</h1>
+      </div>
+      {% with messages= get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, massage in messages %}
+
+      <div class="alert alert-{{category}}">{{massage}}</div>
+      {% endfor %} {% endif %} {% endwith %}
+      <form method="POST" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+
+        <div class="form-group das6">
+          {{form.niss.label(class="form-control-label")}} {% if form.niss.errors %} {{form.niss(class="form-control is-invalid")}}
+
+          <div class="invalid-feedback">
+            {%for error in form.niss.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+          </div>
+          {%else%} {{form.niss(class="form-control")}} {%endif%}
+        </div>
+        <br />
+
+        <br />
+        <div class="form-group das6">
+          {{form.password.label(class="form-control-label") }} {% if form.password.errors %} {{form.password(class="form-control is-invalid")}}
+          <div class="invalid-feedback">
+            {%for error in form.password.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+          </div>
+          {%else%} {{form.password(class="form-control")}} {%endif%}
+        </div>
+        <br />
+        <div class="form-group das7">{{form.submit(class="btn btn-primary")}}</div>
+        <br />
+        <span class="das6">Belum memiliki akun? <a href="{{url_for('buser.daftar_s')}}">Daftar Akun</a></span>
+      </form>
+    </div>
+  </div>
+</body>

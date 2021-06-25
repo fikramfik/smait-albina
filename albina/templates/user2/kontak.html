@@ -1,0 +1,35 @@
+{% extends "user2/base.html" %} {% block konten%}
+<!-- ***** Home Parallax Start ***** -->
+<section class="mini" id="work-process">
+  <div class="mini-content">
+    <div class="container">
+      <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+          <div class="info">
+            <h1>Kontak Sekolah</h1>
+            <p>Untuk Informasi Yang Lebih Jelas Silahkan Hubungi :</p>
+            <img src="" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ***** Mini Box Start ***** -->
+      <div class="row">
+        {% for di in datakegiatan %}
+        <div class="col-lg-2 col-md-5 col-sm-6 col-6">
+          <a href="#" class="mini-box">
+            <i><img src="{{url_for('static', filename='gambar/' + di.gmbr)}}" alt="" width="120px" /></i>
+            <strong>{{di.Kegiatan}}</strong>
+            <strong>Ket:{{di.ket}}</strong>
+            <strong>{{di.tgl_post}}</strong>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- ***** Mini Box End ***** -->
+    </div>
+  </div>
+</section>
+<!-- ***** Home Parallax End ***** -->
+
+{% endblock%}

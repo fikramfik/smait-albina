@@ -1,0 +1,44 @@
+<!-- css  LOGIN-->
+<link href="{{ url_for ('static', filename="admin/bostraps/css/style.css")}}" rel="stylesheet">
+
+<!-- HTML LOGIN -->
+<body>
+  <div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Masuk Akun</h1>
+      </div>
+      <!--falsh/pesan-->
+      {% with messages= get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, massage in messages %}
+
+      <div class="alert alert-{{category}} das6">{{massage}}</div>
+      {% endfor %} {% endif %} {% endwith %}
+      <form method="POST" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+
+        <div class="form-group das6">
+          {{form.nip.label(class="form-control-label")}} {% if form.nip.errors %} {{form.nip(class="form-control is-invalid")}}
+
+          <div class="invalid-feedback">
+            {%for error in form.nip.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+          </div>
+          {%else%} {{form.nip(class="form-control")}} {%endif%}
+        </div>
+        <br />
+        <div class="form-group das6">
+          {{form.password.label(class="form-control-label") }} {% if form.password.errors %} {{form.password(class="form-control is-invalid")}}
+          <div class="invalid-feedback">
+            {%for error in form.password.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+          </div>
+          {%else%} {{form.password(class="form-control")}} {%endif%}
+        </div>
+        <br />
+        <div class="form-group das6">{{form.submit(class="btn btn-primary")}}</div>
+      </form>
+    </div>
+  </div>
+</body>

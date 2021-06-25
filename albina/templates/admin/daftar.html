@@ -1,0 +1,151 @@
+{% extends "admin/base.html" %}
+
+{% block konten%}
+    
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+    
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Pendaftaran Siswa Baru</h1>
+                            <!--bagian bisa dimasukan form seacrh dari masing-masing data-->
+                            <p></p>
+                        </div>
+    
+                        <!-- Content Row -->
+                    
+                        <div class="row">
+    
+                            <!-- Data indusrti -->
+                            <div class="col-xl-4 col-lg-5">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Data Data Pen</h6>
+                                       
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <!--form inputan-->
+                                        <p>bagian untuk meletakan form inputan Siswa</p>
+                                        <form method="POST">
+                                            {{form.hidden_tag()}}
+
+                                        <div class="form-group">
+                                            {{form.niss.label(class="form-control-label")}}
+                                            {% if form.niss.errors %}
+                                                 {{form.niss(class="form-control is-invalid")}}
+                                        
+                                                 <div class="invalid-feedback">
+                                                     {%for error in form.niss.errors %}
+                                                     <span>{{error}}</span>
+                                                     {% endfor %}
+                                                 </div>
+                                            {%else%}
+                                                {{form.niss(class="form-control")}}
+                                            
+                                            {%endif%}
+                                        </div>
+
+                                        
+                                        <div class="form-group">
+                                            {{form.submit(class="btn btn-primary")}}
+                                        </div>
+
+                                        </form>
+                                    </div>
+                                    <div class="card-body">
+                                        <!--form inputan-->
+                                        <p>bagian untuk meletakan form inputan Data Orang Tua</p>
+                                        <form method="POST">
+                                            {{form.hidden_tag()}}
+
+                                        <div class="form-group">
+                                            {{form.nm_siswa.label(class="form-control-label")}}
+                                            {% if form.nm_siswa.errors %}
+                                                 {{form.nm_siswa(class="form-control is-invalid")}}
+                                        
+                                                 <div class="invalid-feedback">
+                                                     {%for error in form.nm_siswa.errors %}
+                                                     <span>{{error}}</span>
+                                                     {% endfor %}
+                                                 </div>
+                                            {%else%}
+                                                {{form.nm_siswa(class="form-control")}}
+                                            
+                                            {%endif%}
+                                        </div>
+
+
+                                        </form>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+    
+                            <!-- Input Kategori -->
+                            <div class="col-xl-8 col-lg-7">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Data Berita</h6>
+                                        
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Id</th>
+                                                            <th>Nama Siswa</th>
+                                                            <th>Tempat Lahir</th>
+                                                            <th>Tanggal Lahir</th>
+                                                            <th>Alamat</th>
+                                                            <th>Asal Sekolah</th>
+                                                            <th>Nama orang Tua</th>
+                                                            <th>Pekerjaan</th>
+                                                            <th>Alamat</th>
+                                                            <th>No. Telp</th>
+                                                            <th>Nama Wali</th>
+                                                            <th>Pekerjaan Wali</th>
+                                                            <th>Alamat</th>
+                                                            <th>No Telp</th>
+                                                            <th>SKL</th>
+                                                        
+                                                        </tr>
+                                                    </thead>
+                                                    
+                                                    <tbody>
+                                                        {% for di in datasiswa %}
+                                                        <tr>
+                                                           
+                                                            <td>{{di.pilihan}}<a class="btn btn-sm btn-warning" href="{{url_for('badmin.update_siswa', ed_id=di.id)}}">Edit</a> <br> <a class="btn btn-sm btn-danger" href="/hapus-siswa/{{di.id}}" onclick="return confirm('Yakin data akan di hapus')">Hapus</a></td>
+                                                            
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    </div></div>      
+    
+    </div>
+                    <!-- /.container-fluid -->
+{% endblock%}
+    

@@ -1,0 +1,90 @@
+{% extends "admin/base.html"%} {% block konten %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Selamat Datang Admin</h1>
+    <!--bagian bisa dimasukan form seacrh dari masing-masing data-->
+    <p></p>
+  </div>
+
+  <!-- Content Row -->
+
+  <div class="row">
+    <!-- Data indusrti -->
+    <div class="col-xl-4 col-lg-5">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Update Akun</h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <!--form inputan-->
+          <p>Masukkan Biodata Anda Dibawah Ini :</p>
+          <form method="POST" enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+
+            <div class="form-group">
+              {{form.nip.label(class="form-control-label")}} {% if form.nip.errors %} {{form.nip(class="form-control is-invalid")}}
+
+              <div class="invalid-feedback">
+                {%for error in form.nip.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+              </div>
+              {%else%} {{form.nip(class="form-control")}} {%endif%}
+            </div>
+            <div class="form-group">
+              {{form.nama.label(class="form-control-label")}} {% if form.nama.errors %} {{form.nama(class="form-control is-invalid")}}
+
+              <div class="invalid-feedback">
+                {%for error in form.nama.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+              </div>
+              {%else%} {{form.nama(class="form-control")}} {%endif%}
+            </div>
+
+            <div class="form-group">
+              {{form.password.label(class="form-control-label")}} {% if form.password.errors %} {{form.password(class="form-control is-invalid")}}
+
+              <div class="invalid-feedback">
+                {%for error in form.password.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+              </div>
+              {%else%} {{form.password(class="form-control")}} {%endif%}
+            </div>
+            <div class="form-group">
+              {{form.konf_pass.label(class="form-control-label")}} {% if form.konf_pass.errors %} {{form.konf_pass(class="form-control is-invalid")}}
+
+              <div class="invalid-feedback">
+                {%for error in form.konf_pass.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+              </div>
+              {%else%} {{form.konf_pass(class="form-control")}} {%endif%}
+            </div>
+            <div class="form-group">
+              {{form.gmbr.label(class="form-control-label")}} {% if form.gmbr.errors %} {{form.gmbr(class="form-control is-invalid")}}
+
+              <div class="invalid-feedback">
+                {%for error in form.gmbr.errors %}
+                <span>{{error}}</span>
+                {% endfor %}
+              </div>
+              {%else%} {{form.gmbr(class="form-control")}} {%endif%}
+            </div>
+            <div class="form-group">
+              {{form.submit(class="btn btn-primary")}}
+              <a class="btn btn-warning" href="{{url_for('badmin.dasboard')}}">Kembali</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock%}
+</div>

@@ -1,0 +1,36 @@
+{% extends "user2/base.html" %} {% block konten%}
+<section class="section padding-bottom-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 align-self-center mobile-bottom-fix">
+        <div class="left-heading">
+          <h3 class="section-title">Visi Dan Misi</h3>
+        </div>
+        {% for di in dataprofil %}
+        <div class="left-text">
+          <p>{{di.profil|striptags}}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="left-heading">
+        <h3 class="section-title">Tujuan Sekolah</h3>
+      </div>
+      {% for di in dataprofil %}
+      <div class="left-text">
+        <p>{{di.visi|striptags}}</p>
+      </div>
+      {% endfor %}
+      <div class="left-heading">
+        <h3 class="section-title">Quality Assurances ( Jaminan Kualitas )</h3>
+      </div>
+      {% for di in dataprofil %}
+      <div class="left-text">
+        <p>{{di.misi|striptags}}</p>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+  </div>
+</section>
+
+{% endblock%}

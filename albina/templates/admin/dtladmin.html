@@ -1,0 +1,52 @@
+{% extends "admin/base.html" %} {% block konten%}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Data Admin</h1>
+    <!--bagian bisa dimasukan form seacrh dari masing-masing data-->
+    <p></p>
+  </div>
+
+  <!-- Content Row -->
+
+  <div class="row">
+    <!-- Data indusrti -->
+    `
+    <div class="col-xl-4 col-lg-5">
+      <div class="card shadow mb-4" style="width: 1090px">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <!--form inputan-->
+          <p>bagian untuk meletakan form inputan</p>
+          <p>Data Dirimu</p>
+          <table>
+            <tr>
+              <td>NIP</td>
+              <td>{{current_user.nip}}</td>
+            </tr>
+            <tr>
+              <td>NAMA</td>
+              <td>{{current_user.nama}}</td>
+            </tr>
+            <tr>
+              <td>Gambar</td>
+            </tr>
+            <tr>
+              <td><img src="{{ url_for ('static', filename='gambar/' +current_user.gmbr)}}" alt="" /></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Kategori -->
+  </div>
+</div>
+<!-- /.container-fluid -->
+{% endblock%}
